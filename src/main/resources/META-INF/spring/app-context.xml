@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-	<context:component-scan base-package="com.bros.persistence" />
+	<context:component-scan base-package="com.straightbeast.realbigd" />
 
 	<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	    <property name="driverClassName" value="org.postgresql.Driver" />
@@ -26,7 +26,7 @@
 	
 	<aop:config>
 	    <aop:pointcut id="logicCutPoint" 
-	          expression="execution(* com.bros.persistence.logic.*.*(..))" />
+	          expression="execution(* com.straightbeast.realbigd.persistence.logic.*.*(..))" />
 	
 	    <aop:advisor advice-ref="txAdvice"
 	         pointcut-ref="logicCutPoint"/>
@@ -35,7 +35,6 @@
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 	    <tx:attributes>
 	        <!-- set propogation required on create methods, all others are read-only -->
-	        <tx:method name="create*" propagation="REQUIRED"/>
 	        <tx:method name="save*" read-only="false"/>
 	        <tx:method name="*" read-only="true" />
 	    </tx:attributes>

@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.straightbeast.realbigd.persistence.base.BaseTestClass;
 import com.straightbeast.realbigd.persistence.domain.Property;
+import com.straightbeast.realbigd.persistence.dto.PropertyDTO;
 import com.straightbeast.realbigd.persistence.enums.Operation;
-import com.straightbeast.realbigd.persistence.logic.PropertyLogic;
 
 public class PropertyLogicTest extends BaseTestClass{
 	
@@ -35,7 +35,7 @@ public class PropertyLogicTest extends BaseTestClass{
 		propertyLogic.saveProperty(p2);
 		propertyLogic.saveProperty(p3);
 		
-		List<Property> search;
+		List<PropertyDTO> search;
 		
 		search = propertyLogic.propertySearch("estes", null, null);
 		Assert.assertEquals(2, search.size());

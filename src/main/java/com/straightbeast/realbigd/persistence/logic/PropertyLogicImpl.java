@@ -1,5 +1,6 @@
 package com.straightbeast.realbigd.persistence.logic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.straightbeast.realbigd.persistence.dao.PropertyDao;
 import com.straightbeast.realbigd.persistence.domain.Property;
+import com.straightbeast.realbigd.persistence.dto.PropertyDTO;
 import com.straightbeast.realbigd.persistence.enums.Operation;
 
 @Service
@@ -27,7 +29,7 @@ public class PropertyLogicImpl implements PropertyLogic{
 		return propertyDao.findById(id);
 	}
 	
-	public List<Property> propertySearch(String address, Float price, Operation op){		
+	public List<PropertyDTO> propertySearch(String address, Float price, Operation op){		
 		DetachedCriteria dc = DetachedCriteria.forClass(Property.class);
 		dc.addOrder(Order.asc("price"));
 		
@@ -57,6 +59,12 @@ public class PropertyLogicImpl implements PropertyLogic{
 			}	
 		}
 		
-		return propertyDao.findAllByCriteria(dc);
+		List<Property> properties = propertyDao.findAllByCriteria(dc);
+		List<PropertyDTO> propertiesDTO = new ArrayList<>();
+		for(Property p : properties){
+			propertiesDTO.add(new PropertyDTO(p));
+		}
+		
+		return propertiesDTO;
 	}
 }

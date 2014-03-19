@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.straightbeast.realbigd.persistence.dto.PropertyDTO;
+
 @Entity
 @Table(name="data_stage")
 public class Property {
@@ -70,26 +72,46 @@ public class Property {
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (getClass() != obj.getClass() && obj.getClass() != PropertyDTO.class)
 			return false;
-		Property other = (Property) obj;
-		if (address == null) {
-			if (other.address != null)
+		
+		if(obj instanceof Property){
+			Property other = (Property) obj;
+			if (address == null) {
+				if (other.address != null)
+					return false;
+			} else if (!address.equals(other.address))
 				return false;
-		} else if (!address.equals(other.address))
-			return false;
-		if (id == null) {
-			if (other.id != null)
+			if (id == null) {
+				if (other.id != null)
+					return false;
+			} else if (!id.equals(other.id))
 				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (price == null) {
-			if (other.price != null)
+			if (price == null) {
+				if (other.price != null)
+					return false;
+			} else if (!price.equals(other.price))
 				return false;
-		} else if (!price.equals(other.price))
-			return false;
-		return true;
+			return true;
+		} else if(obj instanceof PropertyDTO){
+			PropertyDTO other = (PropertyDTO) obj;
+			if (address == null) {
+				if (other.getAddress() != null)
+					return false;
+			} else if (!address.equals(other.getAddress()))
+				return false;
+			if (id == null) {
+				if (other.getId() != null)
+					return false;
+			} else if (!id.equals(other.getId()))
+				return false;
+			if (price == null) {
+				if (other.getPrice() != null)
+					return false;
+			} else if (!price.equals(other.getPrice()))
+				return false;
+			return true;
+		}
+		return false;
 	}
-	
-	
 }

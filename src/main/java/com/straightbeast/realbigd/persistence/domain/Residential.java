@@ -33,6 +33,9 @@ public class Residential {
 	@Column(name="address")
 	private String address;
 	
+	@Column(name="address_number")
+	private String addressNumber;
+	
 	@Column(name="address_direction")
 	private String addressDirection;
 	
@@ -56,6 +59,9 @@ public class Residential {
 	
 	@Column(name="status_cat_id")
 	private int statusCatId;
+	
+	@Column(name="status_id")
+	private int statusId;
 	
 	@Column(name="sale_rent")
 	private String saleRent;
@@ -370,6 +376,22 @@ public class Residential {
 		this.lastDocUpdate = lastDocUpdate;
 	}
 
+	public String getAddressNumber() {
+		return addressNumber;
+	}
+
+	public void setAddressNumber(String addressNumber) {
+		this.addressNumber = addressNumber;
+	}
+
+	public int getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -380,6 +402,8 @@ public class Residential {
 		result = prime
 				* result
 				+ ((addressDirection == null) ? 0 : addressDirection.hashCode());
+		result = prime * result
+				+ ((addressNumber == null) ? 0 : addressNumber.hashCode());
 		result = prime * result
 				+ ((addressStreet == null) ? 0 : addressStreet.hashCode());
 		result = prime * result + ((agent == null) ? 0 : agent.hashCode());
@@ -415,6 +439,7 @@ public class Residential {
 				+ ((sqrFtRange == null) ? 0 : sqrFtRange.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
 		result = prime * result + statusCatId;
+		result = prime * result + statusId;
 		result = prime * result
 				+ ((updateDate == null) ? 0 : updateDate.hashCode());
 		result = prime * result + yearBuilt;
@@ -446,6 +471,11 @@ public class Residential {
 			if (other.addressDirection != null)
 				return false;
 		} else if (!addressDirection.equals(other.addressDirection))
+			return false;
+		if (addressNumber == null) {
+			if (other.addressNumber != null)
+				return false;
+		} else if (!addressNumber.equals(other.addressNumber))
 			return false;
 		if (addressStreet == null) {
 			if (other.addressStreet != null)
@@ -545,6 +575,8 @@ public class Residential {
 			return false;
 		if (statusCatId != other.statusCatId)
 			return false;
+		if (statusId != other.statusId)
+			return false;
 		if (updateDate == null) {
 			if (other.updateDate != null)
 				return false;
@@ -564,6 +596,5 @@ public class Residential {
 			return false;
 		return true;
 	}
-	
 	
 }

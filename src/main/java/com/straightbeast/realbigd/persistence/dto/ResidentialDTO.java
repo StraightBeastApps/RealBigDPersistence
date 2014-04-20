@@ -12,6 +12,7 @@ public class ResidentialDTO {
 	private Long listingId;
 	private int askingPrice;
 	private String address;
+	private String addressNumber;
 	private String addressDirection;
 	private String addressStreet;
 	private String address2;
@@ -20,8 +21,11 @@ public class ResidentialDTO {
 	private String zip;
 	private String zip6;
 	private int statusCatId;
+	private int statusId;
 	private String saleRent;
 	private int numAcres;
+	private int listAgent1;
+	private int listOffice1;
 	private Date hotSheetDate;
 	private Date priceDate;
 	private Date updateDate;
@@ -36,6 +40,7 @@ public class ResidentialDTO {
 	private String description;
 	private String agent;
 	private String office;
+	private String lastDocUpdate;
 	
 	public ResidentialDTO(Residential r) {
 		this.id = r.getId();
@@ -43,6 +48,7 @@ public class ResidentialDTO {
 		this.listingId = r.getListingId();
 		this.askingPrice = r.getAskingPrice();
 		this.address = r.getAddress();
+		this.addressNumber = r.getAddressNumber();
 		this.addressDirection = r.getAddressDirection();
 		this.addressStreet = r.getAddressStreet();
 		this.address2 = r.getAddress2();
@@ -53,6 +59,8 @@ public class ResidentialDTO {
 		this.statusCatId = r.getStatusCatId();
 		this.saleRent = r.getSaleRent();
 		this.numAcres = r.getNumAcres();
+		this.listAgent1 = r.getListAgent1();
+		this.listOffice1 = r.getListOffice1();
 		this.hotSheetDate = r.getHotSheetDate();
 		this.priceDate = r.getPriceDate();
 		this.updateDate = r.getUpdateDate();
@@ -246,15 +254,57 @@ public class ResidentialDTO {
 		this.mlsId = mlsId;
 	}
 
+	public String getAddressNumber() {
+		return addressNumber;
+	}
+
+	public void setAddressNumber(String addressNumber) {
+		this.addressNumber = addressNumber;
+	}
+
+	public String getLastDocUpdate() {
+		return lastDocUpdate;
+	}
+
+	public void setLastDocUpdate(String lastDocUpdate) {
+		this.lastDocUpdate = lastDocUpdate;
+	}
+
+	public int getStatusId() {
+		return statusId;
+	}
+
+	public void setStatusId(int statusId) {
+		this.statusId = statusId;
+	}
+
+	public int getListAgent1() {
+		return listAgent1;
+	}
+
+	public void setListAgent1(int listAgent1) {
+		this.listAgent1 = listAgent1;
+	}
+
+	public int getListOffice1() {
+		return listOffice1;
+	}
+
+	public void setListOffice1(int listOffice1) {
+		this.listOffice1 = listOffice1;
+	}
+
 	@Override
 	public String toString() {
-		return "ResidentialDTO [id=" + id + ", mlsID=" + mlsId + ", listingId="
+		return "ResidentialDTO [id=" + id + ", mlsId=" + mlsId + ", listingId="
 				+ listingId + ", askingPrice=" + askingPrice + ", address="
-				+ address + ", addressDirection=" + addressDirection
-				+ ", addressStreet=" + addressStreet + ", address2=" + address2
-				+ ", city=" + city + ", state=" + state + ", zip=" + zip
-				+ ", zip6=" + zip6 + ", statusCatId=" + statusCatId
+				+ address + ", addressNumber=" + addressNumber
+				+ ", addressDirection=" + addressDirection + ", addressStreet="
+				+ addressStreet + ", address2=" + address2 + ", city=" + city
+				+ ", state=" + state + ", zip=" + zip + ", zip6=" + zip6
+				+ ", statusCatId=" + statusCatId + ", statusId=" + statusId
 				+ ", saleRent=" + saleRent + ", numAcres=" + numAcres
+				+ ", listAgent1=" + listAgent1 + ", listOffice1=" + listOffice1
 				+ ", hotSheetDate=" + hotSheetDate + ", priceDate=" + priceDate
 				+ ", updateDate=" + updateDate + ", pictureCount="
 				+ pictureCount + ", lastPhotoUpdate=" + lastPhotoUpdate
@@ -262,9 +312,8 @@ public class ResidentialDTO {
 				+ neighborhood + ", county=" + county + ", yearBuilt="
 				+ yearBuilt + ", bedrooms=" + bedrooms + ", bathrooms="
 				+ bathrooms + ", description=" + description + ", agent="
-				+ agent + ", office=" + office + "]";
+				+ agent + ", office=" + office + ", lastDocUpdate="
+				+ lastDocUpdate + "]";
 	}
-	
-	
 	
 }

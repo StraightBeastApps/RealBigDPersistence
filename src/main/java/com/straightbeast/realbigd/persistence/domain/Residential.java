@@ -110,6 +110,9 @@ public class Residential {
 	
 	@Column(name="office")
 	private String office;
+	
+	@Column(name="last_doc_update")
+	private Date lastDocUpdate; 
 
 	public Long getId() {
 		return id;
@@ -351,6 +354,22 @@ public class Residential {
 		this.office = office;
 	}
 
+	public long getMlsId() {
+		return mlsId;
+	}
+
+	public void setMlsId(long mlsId) {
+		this.mlsId = mlsId;
+	}
+
+	public Date getLastDocUpdate() {
+		return lastDocUpdate;
+	}
+
+	public void setLastDocUpdate(Date lastDocUpdate) {
+		this.lastDocUpdate = lastDocUpdate;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -375,11 +394,14 @@ public class Residential {
 				+ ((hotSheetDate == null) ? 0 : hotSheetDate.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result
+				+ ((lastDocUpdate == null) ? 0 : lastDocUpdate.hashCode());
+		result = prime * result
 				+ ((lastPhotoUpdate == null) ? 0 : lastPhotoUpdate.hashCode());
 		result = prime * result + listAgent1;
 		result = prime * result + listOffice1;
 		result = prime * result
 				+ ((listingId == null) ? 0 : listingId.hashCode());
+		result = prime * result + (int) (mlsId ^ (mlsId >>> 32));
 		result = prime * result
 				+ ((neighborhood == null) ? 0 : neighborhood.hashCode());
 		result = prime * result + numAcres;
@@ -466,6 +488,11 @@ public class Residential {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
+		if (lastDocUpdate == null) {
+			if (other.lastDocUpdate != null)
+				return false;
+		} else if (!lastDocUpdate.equals(other.lastDocUpdate))
+			return false;
 		if (lastPhotoUpdate == null) {
 			if (other.lastPhotoUpdate != null)
 				return false;
@@ -479,6 +506,8 @@ public class Residential {
 			if (other.listingId != null)
 				return false;
 		} else if (!listingId.equals(other.listingId))
+			return false;
+		if (mlsId != other.mlsId)
 			return false;
 		if (neighborhood == null) {
 			if (other.neighborhood != null)
@@ -534,14 +563,6 @@ public class Residential {
 		} else if (!zip6.equals(other.zip6))
 			return false;
 		return true;
-	}
-
-	public long getMlsId() {
-		return mlsId;
-	}
-
-	public void setMlsId(long mlsId) {
-		this.mlsId = mlsId;
 	}
 	
 	

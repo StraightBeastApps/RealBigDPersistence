@@ -20,8 +20,4 @@ public class ResidentialLogicImpl {
 	public Residential findResidentialById(Long id) {
 		return residentialDao.findById(id);
 	}
-	
-	
-	
-	
 }

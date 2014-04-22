@@ -1,0 +1,10 @@
+How to install database DDL's:
+
+We use a Maven profile to install the DDL's. To run:
+mvn process-resources -Pdb-install
+
+Or from Eclipse:
+1) Right-click project -> Run As -> Maven Build...
+2) In the goals box type "process-resources"
+3) In the profiles box type "db-install"
+4) Click run

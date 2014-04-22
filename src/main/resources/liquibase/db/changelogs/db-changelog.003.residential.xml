@@ -1,0 +1,47 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    
+    <changeSet id="003_residential" author="Matt">
+        <comment>Create table - residential</comment>        
+        
+        <createTable tableName="residential">
+        	<column name="id" type="BIGINT" />
+        	<column name="mls_id" type="BIGINT" />
+        	<column name="listing_id" type="BIGINT" />
+        	<column name="asking_price" type="FLOAT" />
+        	<column name="address" type="VARCHAR(100)" />
+        	<column name="address_number" type="FLOAT" />
+        	<column name="address_direction" type="VARCHAR(2)" />
+        	<column name="address_street" type="VARCHAR(100)" />
+        	<column name="address2" type="VARCHAR(100)" />
+        	<column name="city" type="VARCHAR(20)" />
+        	<column name="state" type="VARCHAR(2)" />
+        	<column name="zip" type="VARCHAR(5)" />
+        	<column name="zip6" type="VARCHAR(5)" />
+        	<column name="status_cat_id" type="FLOAT" />
+        	<column name="status_id" type="FLOAT" />
+        	<column name="sale_rent" type="VARCHAR(1)" />
+        	<column name="num_acres" type="FLOAT" />
+        	<column name="list_agent1" type="INT" />
+        	<column name="list_office1" type="INT" />
+        	<column name="hot_sheet_date" type="DATETIME" />
+        	<column name="price_date" type="DATETIME" />
+        	<column name="update_date" type="DATETIME" />
+        	<column name="picture_count" type="INT" />
+        	<column name="last_photo_update" type="DATETIME" />
+        	<column name="sqr_ft_range" type="VARCHAR(15)" />
+        	<column name="neighborhood" type="VARCHAR(25)" />
+        	<column name="county" type="VARCHAR(25)" />
+        	<column name="year_built" type="INT" />
+        	<column name="bedrooms" type="INT" />
+        	<column name="bathroomms" type="FLOAT" />
+        	<column name="description" type="VARCHAR(250)" />
+        	<column name="agent" type="VARCHAR(30)" />
+        	<column name="office" type="VARCHAR(30)" />
+        	<column name="last_doc_update" type="DATETIME" />
+        </createTable>
+    </changeSet>
+    
+</databaseChangeLog>

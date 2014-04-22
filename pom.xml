@@ -12,7 +12,8 @@
 		<![CDATA[This project is a minimal jar utility with Spring configuration for Hibernate.]]>
 	</description>
 	<properties>
-		<!-- Most of these properties are the same across all applications, consider master parent pom -->
+		<!-- Most of these properties are the same across all applications, consider 
+			master parent pom -->
 		<jdk-version>1.7</jdk-version>
 		<maven.test.failure.ignore>true</maven.test.failure.ignore>
 		<org.springframework-version>4.0.2.RELEASE</org.springframework-version>
@@ -22,6 +23,39 @@
 		<postgresql.jdbc-version>9.1-901.jdbc4</postgresql.jdbc-version>
 		<junit-version>4.11</junit-version>
 	</properties>
+
+	<profiles>
+		<profile>
+			<id>db-install</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+				<plugins>
+					<plugin>
+						<groupId>org.liquibase</groupId>
+						<artifactId>liquibase-maven-plugin</artifactId>
+						<version>3.1.1</version>
+						<configuration>
+							<propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+							<changeLogFile>src/main/resources/liquibase/db-changelog-master.xml</changeLogFile>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>process-resources</phase>
+								<goals>
+									<goal>update</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<dependencies>
 
@@ -87,24 +121,24 @@
 	<build>
 		<plugins>
 			<plugin>
-		    	<groupId>org.apache.maven.plugins</groupId>
-		      	<artifactId>maven-enforcer-plugin</artifactId>
-		      	<executions>
-		        	<execution>
-		          		<id>enforce-versions</id>
-		          			<goals>
-		            			<goal>enforce</goal>
-		          			</goals>
-		          		<configuration>
-		            		<rules>
-		              			<requireJavaVersion>
-		                			<version>${jdk-version}</version>
-		              			</requireJavaVersion>
-		            		</rules>
-		          		</configuration>
-		        	</execution>
-		      	</executions>
-		    </plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireJavaVersion>
+									<version>${jdk-version}</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

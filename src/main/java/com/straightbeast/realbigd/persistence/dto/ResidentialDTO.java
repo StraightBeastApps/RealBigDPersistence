@@ -10,7 +10,7 @@ public class ResidentialDTO {
 	private Long id;
 	private Long mlsId;
 	private Long listingId;
-	private int askingPrice;
+	private float askingPrice;
 	private String address;
 	private String addressNumber;
 	private String addressDirection;
@@ -20,10 +20,10 @@ public class ResidentialDTO {
 	private String state;
 	private String zip;
 	private String zip6;
-	private int statusCatId;
-	private int statusId;
+	private float statusCatId;
+	private float statusId;
 	private String saleRent;
-	private int numAcres;
+	private float numAcres;
 	private int listAgent1;
 	private int listOffice1;
 	private Date hotSheetDate;
@@ -36,7 +36,7 @@ public class ResidentialDTO {
 	private String county;
 	private int yearBuilt;
 	private int bedrooms;
-	private int bathrooms;
+	private float bathrooms;
 	private String description;
 	private String agent;
 	private String office;
@@ -89,7 +89,7 @@ public class ResidentialDTO {
 	public void setListingId(Long listingId) {
 		this.listingId = listingId;
 	}
-	public int getAskingPrice() {
+	public float getAskingPrice() {
 		return askingPrice;
 	}
 	public void setAskingPrice(int askingPrice) {
@@ -143,7 +143,7 @@ public class ResidentialDTO {
 	public void setZip6(String zip6) {
 		this.zip6 = zip6;
 	}
-	public int getStatusCatId() {
+	public float getStatusCatId() {
 		return statusCatId;
 	}
 	public void setStatusCatId(int statusCatId) {
@@ -155,7 +155,7 @@ public class ResidentialDTO {
 	public void setSaleRent(String saleRent) {
 		this.saleRent = saleRent;
 	}
-	public int getNumAcres() {
+	public float getNumAcres() {
 		return numAcres;
 	}
 	public void setNumAcres(int numAcres) {
@@ -221,7 +221,7 @@ public class ResidentialDTO {
 	public void setBedrooms(int bedrooms) {
 		this.bedrooms = bedrooms;
 	}
-	public int getBathrooms() {
+	public float getBathrooms() {
 		return bathrooms;
 	}
 	public void setBathrooms(int bathrooms) {
@@ -270,7 +270,7 @@ public class ResidentialDTO {
 		this.lastDocUpdate = lastDocUpdate;
 	}
 
-	public int getStatusId() {
+	public float getStatusId() {
 		return statusId;
 	}
 

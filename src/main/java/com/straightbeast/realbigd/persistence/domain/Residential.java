@@ -28,7 +28,7 @@ public class Residential {
 	private Long listingId;
 	
 	@Column(name="asking_price")
-	private int askingPrice;
+	private float askingPrice;
 	
 	@Column(name="address")
 	private String address;
@@ -58,16 +58,16 @@ public class Residential {
 	private String zip6;
 	
 	@Column(name="status_cat_id")
-	private int statusCatId;
+	private float statusCatId;
 	
 	@Column(name="status_id")
-	private int statusId;
+	private float statusId;
 	
 	@Column(name="sale_rent")
 	private String saleRent;
 	
 	@Column(name="num_acres")
-	private int numAcres;
+	private float numAcres;
 	
 	@Column(name="list_agent1")
 	private int listAgent1;
@@ -106,7 +106,7 @@ public class Residential {
 	private int bedrooms;
 	
 	@Column(name="bathrooms")
-	private int bathrooms;
+	private float bathrooms;
 	
 	@Column(name="description")
 	private String description;
@@ -136,11 +136,11 @@ public class Residential {
 		this.listingId = listingId;
 	}
 
-	public int getAskingPrice() {
+	public float getAskingPrice() {
 		return askingPrice;
 	}
 
-	public void setAskingPrice(int askingPrice) {
+	public void setAskingPrice(float askingPrice) {
 		this.askingPrice = askingPrice;
 	}
 
@@ -208,11 +208,11 @@ public class Residential {
 		this.zip6 = zip6;
 	}
 
-	public int getStatusCatId() {
+	public float getStatusCatId() {
 		return statusCatId;
 	}
 
-	public void setStatusCatId(int statusCatId) {
+	public void setStatusCatId(float statusCatId) {
 		this.statusCatId = statusCatId;
 	}
 
@@ -224,11 +224,11 @@ public class Residential {
 		this.saleRent = saleRent;
 	}
 
-	public int getNumAcres() {
+	public float getNumAcres() {
 		return numAcres;
 	}
 
-	public void setNumAcres(int numAcres) {
+	public void setNumAcres(float numAcres) {
 		this.numAcres = numAcres;
 	}
 
@@ -328,11 +328,11 @@ public class Residential {
 		this.bedrooms = bedrooms;
 	}
 
-	public int getBathrooms() {
+	public float getBathrooms() {
 		return bathrooms;
 	}
 
-	public void setBathrooms(int bathrooms) {
+	public void setBathrooms(float bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 
@@ -384,11 +384,11 @@ public class Residential {
 		this.addressNumber = addressNumber;
 	}
 
-	public int getStatusId() {
+	public float getStatusId() {
 		return statusId;
 	}
 
-	public void setStatusId(int statusId) {
+	public void setStatusId(float statusId) {
 		this.statusId = statusId;
 	}
 
@@ -407,8 +407,8 @@ public class Residential {
 		result = prime * result
 				+ ((addressStreet == null) ? 0 : addressStreet.hashCode());
 		result = prime * result + ((agent == null) ? 0 : agent.hashCode());
-		result = prime * result + askingPrice;
-		result = prime * result + bathrooms;
+		result = prime * result + Float.floatToIntBits(askingPrice);
+		result = prime * result + Float.floatToIntBits(bathrooms);
 		result = prime * result + bedrooms;
 		result = prime * result + ((city == null) ? 0 : city.hashCode());
 		result = prime * result + ((county == null) ? 0 : county.hashCode());
@@ -428,7 +428,7 @@ public class Residential {
 		result = prime * result + (int) (mlsId ^ (mlsId >>> 32));
 		result = prime * result
 				+ ((neighborhood == null) ? 0 : neighborhood.hashCode());
-		result = prime * result + numAcres;
+		result = prime * result + Float.floatToIntBits(numAcres);
 		result = prime * result + ((office == null) ? 0 : office.hashCode());
 		result = prime * result + pictureCount;
 		result = prime * result
@@ -438,8 +438,8 @@ public class Residential {
 		result = prime * result
 				+ ((sqrFtRange == null) ? 0 : sqrFtRange.hashCode());
 		result = prime * result + ((state == null) ? 0 : state.hashCode());
-		result = prime * result + statusCatId;
-		result = prime * result + statusId;
+		result = prime * result + Float.floatToIntBits(statusCatId);
+		result = prime * result + Float.floatToIntBits(statusId);
 		result = prime * result
 				+ ((updateDate == null) ? 0 : updateDate.hashCode());
 		result = prime * result + yearBuilt;
@@ -487,9 +487,11 @@ public class Residential {
 				return false;
 		} else if (!agent.equals(other.agent))
 			return false;
-		if (askingPrice != other.askingPrice)
+		if (Float.floatToIntBits(askingPrice) != Float
+				.floatToIntBits(other.askingPrice))
 			return false;
-		if (bathrooms != other.bathrooms)
+		if (Float.floatToIntBits(bathrooms) != Float
+				.floatToIntBits(other.bathrooms))
 			return false;
 		if (bedrooms != other.bedrooms)
 			return false;
@@ -544,7 +546,8 @@ public class Residential {
 				return false;
 		} else if (!neighborhood.equals(other.neighborhood))
 			return false;
-		if (numAcres != other.numAcres)
+		if (Float.floatToIntBits(numAcres) != Float
+				.floatToIntBits(other.numAcres))
 			return false;
 		if (office == null) {
 			if (other.office != null)
@@ -573,9 +576,11 @@ public class Residential {
 				return false;
 		} else if (!state.equals(other.state))
 			return false;
-		if (statusCatId != other.statusCatId)
+		if (Float.floatToIntBits(statusCatId) != Float
+				.floatToIntBits(other.statusCatId))
 			return false;
-		if (statusId != other.statusId)
+		if (Float.floatToIntBits(statusId) != Float
+				.floatToIntBits(other.statusId))
 			return false;
 		if (updateDate == null) {
 			if (other.updateDate != null)

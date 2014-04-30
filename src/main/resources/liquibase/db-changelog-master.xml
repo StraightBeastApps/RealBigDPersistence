@@ -7,5 +7,7 @@
     <include relativeToChangelogFile="true" file="db/changelogs/db-changelog.002.property_id_seq.xml" />
     <include relativeToChangelogFile="true" file="db/changelogs/db-changelog.003.residential.xml" />
     <include relativeToChangelogFile="true" file="db/changelogs/db-changelog.004.residential_id_seq.xml" />
+    <include relativeToChangelogFile="true" file="db/changelogs/db-changelog.005.mls_config.xml" />
+    <include relativeToChangelogFile="true" file="db/changelogs/db-changelog.006.mls_mapping.xml" />
 </databaseChangeLog>
 

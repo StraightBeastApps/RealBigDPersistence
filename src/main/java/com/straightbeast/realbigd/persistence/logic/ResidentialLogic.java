@@ -10,4 +10,5 @@ public interface ResidentialLogic {
 	public void saveResidential(Residential r);
 	public Residential findResidentialById(Long id);
 	public List<ResidentialDTO> ResidentialSearch(String address, Float price, Operation op);
+	public boolean save(ResidentialDTO res);
 }

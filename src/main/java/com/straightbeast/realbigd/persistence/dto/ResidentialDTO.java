@@ -1,12 +1,23 @@
 package com.straightbeast.realbigd.persistence.dto;
 
 import java.util.Date;
-
-import javax.persistence.Column;
+import java.util.Map;
 
 import com.straightbeast.realbigd.persistence.domain.Residential;
 
 public class ResidentialDTO {
+	
+	Map<String, Object> data;
+	
+	
+	public Map<String, Object> getData() {
+		return data;
+	}
+
+	public void setData(Map<String, Object> data) {
+		this.data = data;
+	}
+
 	private Long id;
 	private Long mlsId;
 	private Long listingId;
@@ -40,7 +51,7 @@ public class ResidentialDTO {
 	private String description;
 	private String agent;
 	private String office;
-	private String lastDocUpdate;
+	private Date lastDocUpdate;
 	
 	public ResidentialDTO(Residential r) {
 		this.id = r.getId();
@@ -77,6 +88,10 @@ public class ResidentialDTO {
 		this.office = r.getOffice();
 	}
 	
+	public ResidentialDTO() {
+		// To be used to Load and save data
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -224,7 +239,7 @@ public class ResidentialDTO {
 	public float getBathrooms() {
 		return bathrooms;
 	}
-	public void setBathrooms(int bathrooms) {
+	public void setBathrooms(float bathrooms) {
 		this.bathrooms = bathrooms;
 	}
 	public String getDescription() {
@@ -262,11 +277,11 @@ public class ResidentialDTO {
 		this.addressNumber = addressNumber;
 	}
 
-	public String getLastDocUpdate() {
+	public Date getLastDocUpdate() {
 		return lastDocUpdate;
 	}
 
-	public void setLastDocUpdate(String lastDocUpdate) {
+	public void setLastDocUpdate(Date lastDocUpdate) {
 		this.lastDocUpdate = lastDocUpdate;
 	}
 
